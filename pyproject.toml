@@ -13,4 +13,3 @@ homepage = "https://github.com/cmeel/cmeel-urdfdom"
 requires = ["cmeel[build]", "cmeel-urdfdom-headers", "cmeel-tinyxml", "cmeel-console-bridge"]
 build-backend = "cmeel.build"
 source = "urdfdom"
-configure_args = ["-DTIXML_USE_STL"]

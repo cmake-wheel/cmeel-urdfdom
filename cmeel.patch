@@ -1,6 +1,20 @@
---- urdfdom/urdf_parser/CMakeLists.txt.orig	2022-05-28 18:26:52.112844417 +0200
-+++ urdfdom/urdf_parser/CMakeLists.txt	2022-05-28 22:28:05.201701811 +0200
-@@ -18,7 +18,9 @@
+--- urdfdom/urdf_parser/CMakeLists.txt.orig	2022-05-30 18:55:55.463032219 +0200
++++ urdfdom/urdf_parser/CMakeLists.txt	2022-05-30 18:56:28.703317534 +0200
+@@ -5,8 +5,6 @@
+ 
+   add_library(${add_urdfdom_library_LIBNAME} SHARED
+     ${add_urdfdom_library_SOURCES})
+-  target_include_directories(${add_urdfdom_library_LIBNAME} SYSTEM PUBLIC
+-    ${TinyXML_INCLUDE_DIRS})
+   target_include_directories(${add_urdfdom_library_LIBNAME} PUBLIC
+     "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>"
+     "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>")
+@@ -14,11 +12,13 @@
+     ${add_urdfdom_library_LINK}
+     ${console_bridge_link_libs}
+     ${urdfdom_headers_link_libs}
+-    ${TinyXML_LIBRARIES})
++    tinyxml)
    if(NOT CMAKE_CXX_STANDARD)
      target_compile_features(${add_urdfdom_library_LIBNAME} PUBLIC cxx_std_14)
    endif()
@@ -10,3 +24,23 @@
      DEFINE_SYMBOL URDFDOM_EXPORTS
      SOVERSION ${URDF_MAJOR_MINOR_VERSION})
  endmacro()
+--- urdfdom/CMakeLists.txt.orig	2022-05-30 17:25:53.000000000 +0200
++++ urdfdom/CMakeLists.txt	2022-05-30 18:57:48.347994923 +0200
+@@ -45,16 +45,7 @@
+ 
+ set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+ 
+-find_package(tinyxml_vendor QUIET)
+-find_package(TinyXML)
+-# bionic has not cmake module, workaround
+-if (NOT TinyXML_FOUND AND UNIX)
+-  include(FindPkgConfig)
+-  pkg_check_modules (TinyXML tinyxml)
+-else()
+-  # Make it fail in platforms without pkgconfig
+-  find_package(TinyXML REQUIRED) # bionic has not cmake module
+-endif()
++find_package(tinyxml REQUIRED)
+ find_package(urdfdom_headers 1.0 REQUIRED)
+ find_package(console_bridge_vendor QUIET) # Provides console_bridge 0.4.0 on platforms without it.
+ find_package(console_bridge REQUIRED)
