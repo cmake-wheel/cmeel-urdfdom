@@ -52,9 +52,20 @@
  set(PKG_EXPORTS urdfdom)
  set(cmake_conf_file "cmake/urdfdom-config.cmake")
  configure_file("${CMAKE_CURRENT_SOURCE_DIR}/${cmake_conf_file}.in" "${CMAKE_BINARY_DIR}/${cmake_conf_file}" @ONLY)
---- urdfdom/cmake/FindTinyXML.cmake.orig	2022-05-30 17:25:53.000000000 +0200
-+++ urdfdom/cmake/FindTinyXML.cmake	2022-10-04 11:07:10.098309275 +0200
-@@ -1,74 +1 @@
+--- urdfdom/cmake/urdfdom-config.cmake.in.orig	2022-05-30 17:25:53.000000000 +0200
++++ urdfdom/cmake/urdfdom-config.cmake.in	2022-10-04 11:09:17.219100371 +0200
+@@ -3,7 +3,7 @@
+ endif()
+ set(@PKG_NAME@_CONFIG_INCLUDED TRUE)
+ 
+-set(@PKG_NAME@_INCLUDE_DIRS "${@PROJECT_NAME@_DIR}/@RELATIVE_PATH_CMAKE_DIR_TO_PREFIX@/@CMAKE_INSTALL_INCLUDEDIR@" "@TinyXML_INCLUDE_DIRS@")
++set(@PKG_NAME@_INCLUDE_DIRS "${@PROJECT_NAME@_DIR}/@RELATIVE_PATH_CMAKE_DIR_TO_PREFIX@/@CMAKE_INSTALL_INCLUDEDIR@")
+ 
+ foreach(lib @PKG_LIBRARIES@)
+   set(onelib "${lib}-NOTFOUND")
+--- urdfdom/cmake/FindTinyXML.cmake	2022-10-12 09:21:09.263583657 +0200
++++ /dev/null	2022-10-04 20:19:46.473897917 +0200
+@@ -1,74 +0,0 @@
 -##################################################################################################
 -# 
 -# CMake script for finding TinyXML.
@@ -129,15 +140,3 @@
 -  set(TinyXML_INCLUDE_DIRS ${TinyXML_INCLUDE_DIR})
 -  set(TinyXML_LIBRARIES ${TinyXML_LIBRARY})
 -endif()
-+# removed
---- urdfdom/cmake/urdfdom-config.cmake.in.orig	2022-05-30 17:25:53.000000000 +0200
-+++ urdfdom/cmake/urdfdom-config.cmake.in	2022-10-04 11:09:17.219100371 +0200
-@@ -3,7 +3,7 @@
- endif()
- set(@PKG_NAME@_CONFIG_INCLUDED TRUE)
- 
--set(@PKG_NAME@_INCLUDE_DIRS "${@PROJECT_NAME@_DIR}/@RELATIVE_PATH_CMAKE_DIR_TO_PREFIX@/@CMAKE_INSTALL_INCLUDEDIR@" "@TinyXML_INCLUDE_DIRS@")
-+set(@PKG_NAME@_INCLUDE_DIRS "${@PROJECT_NAME@_DIR}/@RELATIVE_PATH_CMAKE_DIR_TO_PREFIX@/@CMAKE_INSTALL_INCLUDEDIR@")
- 
- foreach(lib @PKG_LIBRARIES@)
-   set(onelib "${lib}-NOTFOUND")
