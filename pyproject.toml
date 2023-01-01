@@ -11,6 +11,7 @@ homepage = "https://github.com/cmeel/cmeel-urdfdom"
 
 [tool.cmeel]
 source = "urdfdom"
+build-number = 1
 
 [build-system]
 requires = ["cmeel[build]", "cmeel-urdfdom-headers", "cmeel-tinyxml", "cmeel-console-bridge"]
