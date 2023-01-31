@@ -10,7 +10,7 @@ license = "BSD-3-Clause"
 homepage = "https://github.com/cmake-wheel/cmeel-urdfdom"
 
 [tool.cmeel]
-build-number = 1
+build-number = 2
 source = "urdfdom"
 
 [build-system]
