@@ -1,3 +1,7 @@
+[build-system]
+requires = ["cmeel[build]", "cmeel-urdfdom-headers", "cmeel-tinyxml", "cmeel-console-bridge"]
+build-backend = "cmeel.build"
+
 [project]
 name = "cmeel-urdfdom"
 version = "3.1.0.1"
@@ -12,7 +16,3 @@ homepage = "https://github.com/cmake-wheel/cmeel-urdfdom"
 [tool.cmeel]
 build-number = 2
 source = "urdfdom"
-
-[build-system]
-requires = ["cmeel[build]", "cmeel-urdfdom-headers", "cmeel-tinyxml", "cmeel-console-bridge"]
-build-backend = "cmeel.build"
