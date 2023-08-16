@@ -15,7 +15,7 @@ homepage = "https://github.com/cmake-wheel/cmeel-urdfdom"
 
 [tool.cmeel]
 build-number = 1
-py3-none = true
+has-sitelib = false
 source = "urdfdom"
 
 [tool.tomlsort]
