@@ -1,8 +1,18 @@
 [build-system]
 build-backend = "cmeel"
-requires = ["cmeel-console-bridge", "cmeel-tinyxml", "cmeel-urdfdom-headers", "cmeel[build]"]
+requires = [
+  "cmeel-console-bridge",
+  "cmeel-tinyxml",
+  # "cmeel-tinyxml2",
+  "cmeel-urdfdom-headers",
+  "cmeel[build]"
+]
 
 [project]
+dependencies = [
+  "cmeel-console-bridge",
+  "cmeel-tinyxml"
+]
 description = "cmeel distribution for urdfdom, URDF parser"
 license = "BSD-3-Clause"
 name = "cmeel-urdfdom"
