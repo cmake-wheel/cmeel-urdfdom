@@ -18,7 +18,7 @@ license = "BSD-3-Clause"
 name = "cmeel-urdfdom"
 readme = "urdfdom/README.md"
 requires-python = ">= 3.8"
-version = "3.1.1"
+version = "3.1.1.1"
 
 [project.urls]
 homepage = "https://github.com/cmake-wheel/cmeel-urdfdom"
@@ -26,6 +26,7 @@ homepage = "https://github.com/cmake-wheel/cmeel-urdfdom"
 [tool.cmeel]
 has-sitelib = false
 source = "urdfdom"
+upstream-version = "3.1.1"
 
 [tool.tomlsort]
 all = true
