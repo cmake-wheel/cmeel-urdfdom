@@ -1,0 +1,26 @@
+--- urdfdom/urdf_parser/CMakeLists.txt.orig	2025-02-12 12:55:23.000000000 +0100
++++ urdfdom/urdf_parser/CMakeLists.txt	2025-02-13 12:35:27.521585445 +0100
+@@ -23,6 +23,11 @@
+   set_target_properties(${add_urdfdom_library_LIBNAME} PROPERTIES
+     DEFINE_SYMBOL URDFDOM_EXPORTS
+     SOVERSION ${URDF_MAJOR_MINOR_VERSION})
++  if(APPLE)
++    set_target_properties(${add_urdfdom_library_LIBNAME} PROPERTIES INSTALL_RPATH "@loader_path")
++  else()
++    set_target_properties(${add_urdfdom_library_LIBNAME} PROPERTIES INSTALL_RPATH "\$ORIGIN")
++  endif()
+ endmacro()
+ 
+ if(TARGET console_bridge::console_bridge)
+@@ -80,6 +85,11 @@
+   urdfdom::urdfdom_sensor
+   urdfdom::urdfdom_world)
+ 
++if(APPLE)
++  set_target_properties(urdf_parser PROPERTIES INSTALL_RPATH "@loader_path")
++else()
++  set_target_properties(urdf_parser PROPERTIES INSTALL_RPATH "\$ORIGIN")
++endif()
+ # --------------------------------
+ 
+ add_executable(check_urdf src/check_urdf.cpp)
