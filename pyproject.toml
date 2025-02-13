@@ -24,6 +24,7 @@ homepage = "https://github.com/cmake-wheel/cmeel-urdfdom"
 upstream = "https://github.com/ros/urdfdom"
 
 [tool.cmeel]
+build-number = 1
 has-sitelib = false
 source = "urdfdom"
 
